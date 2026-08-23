@@ -1,40 +1,43 @@
-public class Pedido {
+import javax.lang.model.SourceVersion;
 
+public abstract class Pedido {
+
+    // Atributos comunes
     private int idPedido;
     private String direccionEntrega;
-    private String tipoPedido;
+    private double distanciaKm;
 
-    public Pedido(int idPedido, String direccionEntrega, String tipoPedido) {
+    // Constructor
+    public Pedido(int idPedido, String direccionEntrega, double distanciaKm) {
         this.idPedido = idPedido;
         this.direccionEntrega = direccionEntrega;
-        this.tipoPedido = tipoPedido;
+        this.distanciaKm = distanciaKm;
     }
+
+    // Getters
 
     public String getDireccionEntrega() {
         return direccionEntrega;
     }
 
-    public void setDireccionEntrega(String direccionEntrega) {
-        this.direccionEntrega = direccionEntrega;
-    }
 
     public int getIdPedido() {
         return idPedido;
     }
 
-    public void setIdPedido(int idPedido) {
-        this.idPedido = idPedido;
+    public double getDistanciaKm() {
+        return distanciaKm;
     }
 
-    public String getTipoPedido() {
-        return tipoPedido;
+    // Metodo Concreto
+
+    public void mostrarResumen() {
+        System.out.println("Dirección: " + direccionEntrega);
+        System.out.println("Distancia: " + distanciaKm + " km");
     }
 
-    public void setTipoPedido(String tipoPedido) {
-        this.tipoPedido = tipoPedido;
-    }
+    // Método abstracto
 
-    public void asignarRepartidor(){
-        System.out.println("Repartidor Asignado");
-        }
+    public abstract int calcularTiempoEntrega();
+
 }

@@ -1,25 +1,18 @@
 public class PedidoComida extends Pedido {
 
-    public PedidoComida(int idPedido, String direccionEntrega, String tipoPedido) {
-        super(idPedido, direccionEntrega, tipoPedido);
+    //  Constructor
+
+    public PedidoComida(int idPedido, String direccionEntrega, double distanciaKm) {
+        super(idPedido, direccionEntrega, distanciaKm);
     }
 
-    // Método sobrescrito
+    // Método anstracto
 
     @Override
-    public void asignarRepartidor() {
-        System.out.println("[Pedido Comida]");
-        System.out.println("Asignando repartidor...");
-        System.out.println("→ Verificando repartidor con mochila térmica... OK");
-    }
-
-    // Método sobrecargado
-
-    public void asignarRepartidor(String nombreRepartidor) {
-        System.out.println("[Pedido Comida]");
-        System.out.println("Asignando repartidor...");
-        System.out.println("→ Verificando repartidor con mochila térmica... OK");
-        System.out.println("→ Pedido asignado a " + nombreRepartidor);
+    public int calcularTiempoEntrega() {
+        int tiempoBase = 15;
+        int tiempoExtra = (int) ( 2* getDistanciaKm());
+        return tiempoBase + tiempoExtra;
     }
 
 }
