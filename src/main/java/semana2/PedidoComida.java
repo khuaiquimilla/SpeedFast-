@@ -1,3 +1,5 @@
+package semana2;
+
 public class PedidoComida extends Pedido {
 
     //  Constructor

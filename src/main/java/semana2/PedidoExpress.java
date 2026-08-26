@@ -1,3 +1,5 @@
+package semana2;
+
 public class PedidoExpress extends Pedido{
 
     public PedidoExpress(int idPedido, String direccionEntrega, double distanciaKm) {

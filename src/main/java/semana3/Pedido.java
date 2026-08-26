@@ -1,6 +1,6 @@
-import javax.lang.model.SourceVersion;
+package semana3;
 
-public abstract class Pedido {
+public abstract class Pedido implements Despachable, Cancelable{
 
     // Atributos comunes
     private int idPedido;
@@ -19,12 +19,9 @@ public abstract class Pedido {
     public String getDireccionEntrega() {
         return direccionEntrega;
     }
-
-
     public int getIdPedido() {
         return idPedido;
     }
-
     public double getDistanciaKm() {
         return distanciaKm;
     }
@@ -40,4 +37,23 @@ public abstract class Pedido {
 
     public abstract int calcularTiempoEntrega();
 
+    // Método para asignar un repartidor
+    public void asignarRepartidor() {
+        System.out.println("Repartidor asignado automáticamente.");
+    }
+
+    // Implementación de interfaces Despachable y Cancelable
+
+    @Override
+    public void despachar() {
+        System.out.println("Pedido despachado correctamente.");
+    }
+
+    @Override
+    public void cancelar() {
+        System.out.println("Cancelando Pedido #" + idPedido + "...");
+        System.out.println("→ Pedido cancelado correctamente.");
+    }
+
 }
+
